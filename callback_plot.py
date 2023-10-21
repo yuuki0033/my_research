@@ -55,6 +55,10 @@ app.layout = html.Div([
             {'label': 'RWMOP19_CA', 'value': 'RWMOP19_CA'},
             {'label': 'RWMOP20_k', 'value': 'RWMOP20_k'},
             {'label': 'RWMOP20_CA', 'value': 'RWMOP20_CA'},
+            {'label': 'RWMOP21_k', 'value': 'RWMOP21_k'},
+            {'label': 'RWMOP21_CA', 'value': 'RWMOP21_CA'},
+            {'label': 'RWMOP25_k', 'value': 'RWMOP25_k'},
+            {'label': 'RWMOP25_CA', 'value': 'RWMOP25_CA'},
         ],
     ),
     #html.Br()はHTMLの改行要素を表す
@@ -114,12 +118,26 @@ def update_message(value):
             if  int(p_num) == 9 or int(p_num) == 10 or int(p_num) == 21:
                 data = pd.concat([data2,data1])
                 fig = px.scatter_matrix(data,dimensions=column,color = "class",color_discrete_sequence = ['aqua', 'red'])   
+                l1 = len(data1)
+                l2 = len(data2)
+                total = len(data)
+                rate_p = '{:.1%}'.format(l1/total)
+                rate_d = '{:.1%}'.format(l2/total)
+                title2 = " Pareto " + rate_p + ", Dominated " + rate_d
                 
             else:
                 data = pd.concat([data2,data3,data1])
                 fig = px.scatter_matrix(data,dimensions=column,color = "class",color_discrete_sequence = ['aqua','gray','red'])
+                l1 = len(data1)
+                l2 = len(data2)
+                l3 = len(data3)
+                total = len(data)
+                rate_p = '{:.1%}'.format(l1/total)
+                rate_d = '{:.1%}'.format(l2/total)
+                rate_i = '{:.1%}'.format(l3/total)
+                title2 = " Pareto " + rate_p + ", Dominated " + rate_d + ", Infeasible " + rate_i
                 
-            title = "RWMOP" + str(p_num) + "_k"
+            title = "RWMOP" + str(p_num) + "_k:" + title2
             fig.update_layout(title=title,height=800, width=800)
             
         
@@ -137,13 +155,27 @@ def update_message(value):
                 
             if  int(p_num) == 9 or int(p_num) == 10 or int(p_num) == 21:
                 data = pd.concat([data2,data1])
-                fig = px.scatter_matrix(data,dimensions=column,color = "class",color_discrete_sequence = ['aqua', 'red'])   
+                fig = px.scatter_matrix(data,dimensions=column,color = "class",color_discrete_sequence = ['aqua', 'red'])  
+                l1 = len(data1)
+                l2 = len(data2)
+                total = len(data)
+                rate_p = '{:.1%}'.format(l1/total)
+                rate_d = '{:.1%}'.format(l2/total)
+                title2 = " Pareto " + rate_p + ", Dominated " + rate_d
                 
             else:
                 data = pd.concat([data2,data3,data1])
                 fig = px.scatter_matrix(data,dimensions=column,color = "class",color_discrete_sequence = ['aqua','gray','red'])
+                l1 = len(data1)
+                l2 = len(data2)
+                l3 = len(data3)
+                total = len(data)
+                rate_p = '{:.1%}'.format(l1/total)
+                rate_d = '{:.1%}'.format(l2/total)
+                rate_i = '{:.1%}'.format(l3/total)
+                title2 = " Pareto " + rate_p + ", Dominated " + rate_d + ", Infeasible " + rate_i
                 
-            title = "RWMOP" + str(p_num) + "_CA"
+            title = "RWMOP" + str(p_num) + "_CA:" + title2
             fig.update_layout(title=title,height=800, width=800)
             
             
