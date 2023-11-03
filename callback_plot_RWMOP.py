@@ -59,6 +59,10 @@ app.layout = html.Div([
             {'label': 'RWMOP21_CA', 'value': 'RWMOP21_CA'},
             {'label': 'RWMOP25_k', 'value': 'RWMOP25_k'},
             {'label': 'RWMOP25_CA', 'value': 'RWMOP25_CA'},
+            {'label': 'RWMOP26_k', 'value': 'RWMOP26_k'},
+            {'label': 'RWMOP26_CA', 'value': 'RWMOP26_CA'},
+            {'label': 'RWMOP27_k', 'value': 'RWMOP27_k'},
+            {'label': 'RWMOP27_CA', 'value': 'RWMOP27_CA'},
         ],
     ),
     #html.Br()はHTMLの改行要素を表す
